@@ -26,6 +26,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Use FactoryBot for fixtures [https://github.com/thoughtbot/factory_bot_rails]
+gem 'factory_bot_rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -47,6 +50,9 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
+
+  # Use RSpec for testing [https://github.com/rspec/rspec-rails]
+  gem "rspec-rails", "~> 6.0.0"
 end
 
 group :development do
@@ -64,4 +70,10 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
+  # Use Guard to watch for file changes [https://github.com/ranmocy/guard-rails]
+  gem 'guard-rails', require: false
+
+  # Use Guard rspec to watch for file changes [https://github.com/guard/guard-rspec]
+  gem 'guard-rspec', require: false
 end
