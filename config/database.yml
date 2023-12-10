@@ -23,6 +23,8 @@ development:
 test:
   <<: *default
   database: biblivre4_test
+  username: postgres
+  password: abracadabra
 
 production:
   <<: *default
