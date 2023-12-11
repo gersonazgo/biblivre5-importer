@@ -35,6 +35,13 @@ RSpec.describe BiblioHolding, type: :model do
     end
   end
 
+  context 'Dependencies' do
+    it 'belongs_to biblio_record' do
+      biblio_holding = FactoryBot.create(:biblio_holding)
+      expect(biblio_holding.biblio_record).to be_present
+    end
+  end
+
   context 'Before Save' do
     it 'set material to holdings' do
       biblio_holding = FactoryBot.create(:biblio_holding)
