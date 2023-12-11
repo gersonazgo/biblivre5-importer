@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Marc::BiblioRecordGeneratorService, type: :model do
+RSpec.describe Marc::BiblioRecord::GeneratorService, type: :service do
   before do
     @csv_holding = FactoryBot.build(:csv_holding)
   end
