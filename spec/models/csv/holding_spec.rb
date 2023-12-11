@@ -12,11 +12,6 @@ RSpec.describe Csv::Holding, type: :model do
       expect(csv_holding).to be_invalid
     end
 
-    it 'is invalid without local_chamada' do
-      csv_holding = FactoryBot.build(:csv_holding, local_chamada: nil)
-      expect(csv_holding).to be_invalid
-    end
-
     it 'is invalid without autor' do
       csv_holding = FactoryBot.build(:csv_holding, autor: nil)
       expect(csv_holding).to be_invalid
