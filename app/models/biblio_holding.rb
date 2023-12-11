@@ -1,10 +1,10 @@
 # Representa o registro de um exemplar de uma obra
 # no Biblivre
 class BiblioHolding < ApplicationRecord
-  belongs_to :biblio_record, foreign_key: 'record_id'
-
   before_validation :set_material
   before_validation :set_user
+
+  belongs_to :biblio_record, foreign_key: 'record_id'
 
   validates :iso2709, presence: true
   validates :iso2709, uniqueness: true
