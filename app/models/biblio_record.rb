@@ -5,7 +5,7 @@ class BiblioRecord < ApplicationRecord
   before_validation :set_user
 
   validates :iso2709, presence: true
-  validates :iso2709, uniqueness: true
+  #validates :iso2709, uniqueness: true
 
   # Todos os materiais que importarei serao
   # considerados livros
