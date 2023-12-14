@@ -4,6 +4,7 @@ require 'marc'
 # um registro de Holding (exemplar) no banco de dados.
 class Csv::Holding
 
+
   include ActiveModel::Model
   include ActiveModel::Validations
 
@@ -12,4 +13,20 @@ class Csv::Holding
   validates :nro_tombo, presence: true
   validates :autor, presence: true
   validates :titulo, presence: true
+
+  def initialize(attributes = {})
+    super(attributes)
+    strip_special_characters
+  end
+
+  def strip_special_characters
+    [:nro_tombo, :autor, :titulo].each do |attribute|
+      value = self.send(attribute)
+      next unless value.is_a?(String)
+
+      # Remove caracteres especiais e espaços extras
+      cleaned_value = value.gsub(/[^0-9a-zA-Z\s]/, '').strip
+      self.send("#{attribute}=", cleaned_value)
+    end
+  end
 end
