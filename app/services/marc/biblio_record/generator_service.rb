@@ -15,6 +15,7 @@ class Marc::BiblioRecord::GeneratorService
 
   def generate_biblio_record_marc
     raise 'Holding inválido' unless @csv_holding.valid?
+    raise 'Biblio Record precisa estar salvo' unless @biblio_record.persisted?
 
     record = MARC::Record.new
 
