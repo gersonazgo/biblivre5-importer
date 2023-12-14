@@ -3,9 +3,10 @@
 # id de registro de bibliográfico (biblio_record)
 class Marc::BiblioHolding::GeneratorService
 
-  def initialize(csv_holding:, record_id:)
+  def initialize(csv_holding:, biblio_record:, biblio_holding:)
     @csv_holding = csv_holding
-    @record_id = record_id
+    @biblio_record = biblio_record
+    @biblio_holding = biblio_holding
   end
 
   def call
@@ -50,17 +51,19 @@ class Marc::BiblioHolding::GeneratorService
 
   def generate_biblio_holding_marc
     raise 'Holding inválido' unless @csv_holding.valid?
+    raise 'Biblio Record precisa estar salvo' unless @biblio_record.persisted?
+    raise 'Biblio Holding precisa estar salvo' unless @biblio_holding.persisted?
 
     record = MARC::Record.new
 
     # Campo 000: Cabeçalho do Registro
     record.append(MARC::ControlField.new('000', '00170nu a2200097un 4500'))
 
-    # Campo 001: Número de controle (Número de Tombo)
-    # record.append(MARC::ControlField.new('001', @csv_holding.nro_tombo.rjust(7, '0')))
+    # Campo 001: Número de controle (ID do registro de exemplar no banco de dados)
+    record.append(MARC::ControlField.new('001', @biblio_holding.id.to_s.rjust(7, '0')))
 
-    # Campo 004: Identificador do número de controle
-    record.append(MARC::ControlField.new('004', "#{@record_id}"))
+    # Campo 004: Identificador do número de controle (ID do registro da obra no banco de dados)
+    record.append(MARC::ControlField.new('004', "#{@biblio_record.id}"))
 
     # Campo 005: Data e hora da última transação
     record.append(MARC::ControlField.new('005', DateTime.now.strftime('%Y%m%d%H%M%S.%L')))
@@ -68,9 +71,6 @@ class Marc::BiblioHolding::GeneratorService
     # Campo 090: Código de Localização
     # Subcampo 'a' para a localização e 'e' para o exemplar
     record.append(MARC::DataField.new('090', ' ', ' ', ['a', "#{@csv_holding.local_chamada}"], ['e', 'ex.1']))
-
-    # Campo 541: Informações de Aquisição (pode ser ajustado conforme necessário)
-    record.append(MARC::DataField.new('541', ' ', ' '))
 
     # Campo 949: Informações Adicionais (pode ser ajustado conforme necessário)
     record.append(MARC::DataField.new('949', ' ', ' ', ['a', "#{@csv_holding.nro_tombo}"]))
