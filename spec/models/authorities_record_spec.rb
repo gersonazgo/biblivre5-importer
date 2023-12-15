@@ -11,12 +11,6 @@ RSpec.describe AuthoritiesRecord, type: :model do
       authorities_record = FactoryBot.build(:authorities_record, iso2709: nil)
       expect(authorities_record).to be_invalid
     end
-
-    it 'is invalid when iso2709 is duplicate' do
-      authorities_record = FactoryBot.create(:authorities_record, iso2709: 'teste')
-      authorities_record_dup = FactoryBot.build(:authorities_record, iso2709: 'teste')
-      expect(authorities_record_dup).to be_invalid
-    end
   end
 
   context 'Before Save' do

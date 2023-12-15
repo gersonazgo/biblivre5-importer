@@ -3,7 +3,6 @@ class AuthoritiesRecord < ApplicationRecord
   before_validation :set_user
 
   validates :iso2709, presence: true
-  validates :iso2709, uniqueness: true
 
   # Ultima criacao e edicao serao do usuario 1,
   # Que é o admin default do biblivre
