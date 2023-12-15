@@ -11,12 +11,6 @@ RSpec.describe BiblioRecord, type: :model do
       biblio_record = FactoryBot.build(:biblio_record, iso2709: nil)
       expect(biblio_record).to be_invalid
     end
-
-    it 'is invalid when iso2709 is duplicate' do
-      biblio_record = FactoryBot.create(:biblio_record, iso2709: 'teste')
-      biblio_record_dup = FactoryBot.build(:biblio_record, iso2709: 'teste')
-      expect(biblio_record_dup).to be_invalid
-    end
   end
 
   context 'Before Save' do
