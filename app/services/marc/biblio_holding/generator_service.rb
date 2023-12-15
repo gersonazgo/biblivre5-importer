@@ -15,40 +15,6 @@ class Marc::BiblioHolding::GeneratorService
 
   private
 
-  # def generate_biblio_holding_marc
-  #   raise 'Holding inválido' unless @csv_holding.valid?
-
-  #   record = MARC::Record.new
-
-  #   # Campo 001: Número de controle (Número de Tombo)
-  #   # ATENCAO: existe uma redundancia entre este campo MARC e o accession_number
-  #   # no model. Eu suponho que é para otimizar busca
-  #   record.append(MARC::ControlField.new('001', @csv_holding.nro_tombo.rjust(5, '0')))
-
-  #   # Campo 003: Identificador do número de controle
-  #   record.append(MARC::ControlField.new('003', '1'))
-
-  #   # Campo 005: Data e hora da última transação
-  #   record.append(MARC::ControlField.new('005', DateTime.now.strftime('%Y%m%d%H%M%S.%L')))
-
-  #   # Campo 100: Autor
-  #   record.append(MARC::DataField.new('100', '1', ' ', ['a', @csv_holding.autor]))
-
-  #   # Campo 245: Título
-  #   record.append(MARC::DataField.new('245', '1', '0', ['a', @csv_holding.titulo]))
-
-  #   # Campo 260: Ano de Publicação
-  #   # Ajuste os subcampos conforme necessário
-  #   record.append(MARC::DataField.new('260', ' ', ' ', ['c', @csv_holding.ano]))
-
-  #   # Campo 852: Localização da Chamada
-  #   # # ATENCAO: existe uma redundancia entre este campo MARC e o location_d
-  #   # no model. Eu suponho que é para otimizar busca
-  #   record.append(MARC::DataField.new('852', ' ', ' ', ['a', @csv_holding.local_chamada]))
-
-  #   record.to_marc
-  # end
-
   def generate_biblio_holding_marc
     raise 'Holding inválido' unless @csv_holding.valid?
     raise 'Biblio Record precisa estar salvo' unless @biblio_record.persisted?
