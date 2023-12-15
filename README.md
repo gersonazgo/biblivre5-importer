@@ -6,21 +6,9 @@ Esta aplicação foi criada com o objetivo de simplificar e agilizar o processo 
 ## Funcionalidade
 A aplicação permite a importação de dados de obras, exemplares e autoridades para o Biblivre 5, lendo informações diretamente de um arquivo CSV. Para cada linha do CSV será criada uma obra e um exemplar. O formato esperado do arquivo CSV deve ser como o seguinte:
 
-## Exemplo de Formato CSV
-```csv
-NRO TOMBO,CHAMADA,AUTOR,TITULO,LOCAL,EST/PAIS,EDITORA,ANO,OBS,CONFERÊNCIA
-1,641B43A,CAROLINE BERGEROT,"COZINHA VEGETARIANA: ARROZ, RISOTOS",SAO PAULO,SP,CULTRIX,2014,,
-2,1581M59C,WILSON MILERIS,O CLICK DO EXITO,SAO PAULO,SP,PRESTIGIO,2006,,
-```
 
 ## Tecnologia Utilizada
-A aplicação é desenvolvida utilizando Ruby on Rails 7, oferecendo robustez e facilidade de expansão e manutenção.
-
-## Configuração
-
-### Configuração do Banco de Dados
-
-É necessário configurar o `database.yml` para se conectar ao banco de dados do Biblivre. Siga as instruções padrão do Rails para a configuração do banco de dados.
+A aplicação é desenvolvida utilizando Ruby on Rails 7.
 
 ### Backup e Preparação
 
