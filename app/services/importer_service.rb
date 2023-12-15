@@ -3,7 +3,7 @@ require 'csv'
 class ImporterService
   def initialize
     # Supondo que o arquivo CSV está no mesmo diretório que este arquivo
-    @file_path = File.expand_path('../books_sample.csv', __FILE__)
+    @file_path = File.expand_path('../exemplares.csv', __FILE__)
     @success_file_path = File.expand_path('../success.csv', __FILE__)
     @failure_file_path = File.expand_path('../failures.csv', __FILE__)
 
