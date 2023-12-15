@@ -26,5 +26,12 @@ module BiblivreImporter
     #
 
     config.autoload_paths << Rails.root.join('app/services')
+
+
+    # Locale padrão da aplicação
+    config.i18n.default_locale = :'pt-BR'
+
+    # Locale de backup em caso de tradução faltante
+    config.i18n.fallbacks = [:en]
   end
 end

@@ -1,0 +1,18 @@
+pt-BR:
+  activerecord:
+    models:
+      biblio_holding: "Exemplar Bibliográfico"
+    attributes:
+      biblio_holding:
+        record_id: "ID do Registro"
+        iso2709: "ISO 2709 (Campo Marc)"
+        database: "Base de Dados"
+        accession_number: "Número de Tombo"
+        location_d: "Localização"
+        created: "Criado em"
+        created_by: "Criado por"
+        modified: "Modificado em"
+        modified_by: "Modificado por"
+        material: "Material"
+        availability: "Disponibilidade"
+        label_printed: "Etiqueta Impressa"
