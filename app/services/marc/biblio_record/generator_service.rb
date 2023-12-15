@@ -21,9 +21,9 @@ class Marc::BiblioRecord::GeneratorService
 
     # Supondo que @biblio_record possui um campo de ID único que possa ser usado aqui
     # Ajustar este campo conforme necessário
-    record_id = @biblio_record.id || '0000000'
-    record.append(MARC::ControlField.new('001', record_id.to_s.rjust(7, '0')))
+    record.append(MARC::ControlField.new('001', @biblio_record.id.to_s.rjust(7, '0')))
 
+    # Campo 005: Data e Hora da Última Transação
     record.append(MARC::ControlField.new('005', Time.now.strftime('%Y%m%d%H%M%S.%L')))
 
     # Supondo que todos os registros são do tipo 'cam' para o campo '008'
