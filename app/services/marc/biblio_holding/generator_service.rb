@@ -1,6 +1,5 @@
 # Responsável por gerar um MARC::Record a partir de um Csv::Holding
-# válido para um registro de exemplar (biblio_holding) e uma
-# id de registro de bibliográfico (biblio_record)
+# válido para um registro de exemplar (biblio_holding)
 class Marc::BiblioHolding::GeneratorService
 
   def initialize(csv_holding:, biblio_record:, biblio_holding:)
