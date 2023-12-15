@@ -4,7 +4,7 @@
 Esta aplicação foi criada com o objetivo de simplificar e agilizar o processo de adição de obras, exemplares e autoridades ao sistema Biblivre 5 a partir de arquivos CSV. O Biblivre é um sistema amplamente utilizado por bibliotecas, e a digitalização de acervos é um desafio comum. Esta ferramenta visa facilitar a transição de bibliotecas não digitalizadas para o formato digital, aproveitando dados fornecidos em planilhas.
 
 ## Funcionalidade
-A aplicação permite a importação de dados de obras, exemplares e autoridades para o Biblivre 5, lendo informações diretamente de um arquivo CSV. Para cada linha do CSV será criada uma obra, um exemplar e, caso já não tenha sido adicionada, uma autoridade (autor/autora). O formato esperado do arquivo CSV deve ser como o seguinte:
+A aplicação permite a importação de dados de obras, exemplares e autoridades para o Biblivre 5, lendo informações diretamente de um arquivo CSV. Para cada linha do CSV será criada uma obra, um exemplar e, caso já não tenha sido adicionada, uma autoridade (autor/autora). 
 
 
 ## Tecnologia Utilizada
