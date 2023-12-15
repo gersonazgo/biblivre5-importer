@@ -17,9 +17,13 @@ class ImporterService
   end
 
   def call
+    # Desabilita o log do ActiveRecord para melhorar a legibilidade
+    # do output no terminal
+    ActiveRecord::Base.logger.level = 1
+
     index = 0
     CSV.foreach(@file_path, headers: true, header_converters: :symbol) do |row|
-      puts "Importando registro #{index += 1}"
+      puts "Importando registro #{index += 1} / No de tombo: #{row[:nro_tombo]}"
       csv_holding = build_csv_holding(row)
       import_csv_holding(csv_holding, row)
     end
@@ -63,8 +67,9 @@ class ImporterService
 
       true
     end
-  rescue ActiveRecord::Rollback
+  rescue StandardError => e
     false
+    puts "Erro ao importar registro: #{e.message}"
   end
 
   def create_and_save_biblio_record(csv_holding)
