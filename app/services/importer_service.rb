@@ -4,7 +4,7 @@ class ImporterService
   def initialize
     # Supondo que o arquivo CSV está no mesmo diretório que este arquivo
     @file_path = File.expand_path('../exemplares.csv', __FILE__)
-    @success_file_path = File.expand_path('../success.csv', __FILE__)
+    @success_file_path = File.expand_path('../successes.csv', __FILE__)
     @failure_file_path = File.expand_path('../failures.csv', __FILE__)
 
     # Cria os arquivos CSV de sucesso e falha
